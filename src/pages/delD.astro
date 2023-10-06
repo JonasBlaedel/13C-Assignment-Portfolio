@@ -1,0 +1,186 @@
+---
+import "../../public/shared.css"
+import MainLayout from "../components/MainLayout.astro"
+---
+
+<MainLayout>
+    <h1>Part D</h1>
+    <p class="intro">I HTML-delen er samlet i "container," der bruger grid-layout til at præsentere kortene for hver medarbejder. 
+
+        CSS-stylingen for "container"  bruger CSS grid med autofit layout på min 300px. Der er også en begrænsning af bredden og centreringen af "container."
+        
+        Hvert "card" har en baggrundsfarve, som en del af mit style tile med afrundede hjørner. Medarbejderprofilbilledet ("profile") har også en afrundet kant, og størrelsen varierer afhængigt af, om kortet er lige eller ulige.
+        
+        Der er også to media queries. Ved skærmbredder under 1300px tilpasses antallet af kolonner i "container." Ved skærmbredder under 1000px ændres layoutet igen for at tilpasse sig mindre skærme.</p>
+   <div class="container">
+    <div class="card" id="card-1">
+        <div class="employee">
+            <img src="../../public/img/jim.png" alt="" class="profile">
+            <div class="nameNTitle">
+                <p class="name">Jim Halpert</p>
+                <p class="title">Sales Representative</p>
+            </div>
+        </div>
+        <span class="desc">Jim Halpert is a skilled and affable sales representative at Dunder Mifflin's Scranton branch. With his charming and laid-back demeanor, he effortlessly builds rapport with clients, making him a valuable asset to the sales team. Jim is known for his quick wit and ability to defuse tense situations in the office, often using humor to ease workplace tensions. </span>
+        <span class="personal">Outside of work, Jim is passionate about photography, often capturing candid moments around the office and documenting the quirks of his coworkers. He shares a special bond with his wife, Pam Halpert, and their love story has become a hallmark of the Scranton branch's office culture.</span>
+    </div>
+    <div class="card" id="card-2">
+        <div class="employee">
+            <img src="../../public/img/dwight.png" alt="" class="profile">
+            <div class="nameNTitle">
+                <p class="name">Dwight Schrute</p>
+                <p class="title">Assistant to the Regional Manager</p>
+            </div>
+        </div>
+        <span class="desc">Dwight Schrute is the Assistant Regional Manager at Dunder Mifflin's Scranton branch, and he takes his job very seriously. His unwavering dedication to the company often borders on eccentricity, and he is known for enforcing office policies with rigorous precision.</span>
+        <span class="personal">Dwight is a self-proclaimed survivalist with an extensive knowledge of obscure survival techniques. His passion for beets is well-known in the office, and he is always ready to share bizarre beet-related facts and stories, adding a unique flavor to the office dynamics.</span>
+    </div>
+    <div class="card" id="card-3">
+        <div class="employee">
+            <img src="../../public/img/andy.png" alt="" class="profile">
+            <div class="nameNTitle">
+                <p class="name">Andy Bernard</p>
+                <p class="title">Sales Director</p>
+            </div>
+        </div>
+        <span class="desc">Andy Bernard is the energetic and sometimes melodramatic Sales Director at Dunder Mifflin's Scranton branch. He is responsible for motivating his sales team to achieve their targets while also providing guidance and support. Andy's enthusiasm, combined with his quirky catchphrases, adds a touch of entertainment to the office atmosphere.</span>
+        <span class="personal">Outside of the office, Andy is an aspiring musician, often breaking into song at unexpected moments. His temperamental nature and unpredictable outbursts have earned him a reputation for being a bit eccentric, but his dedication to the job is undeniable.</span>
+    </div>
+    <div class="card" id="card-4">
+        <div class="employee">
+            <img src="../../public/img/pam.png" alt="" class="profile">
+            <div class="nameNTitle">
+                <p class="name">Pam Halpert</p>
+                <p class="title">Sales Administrator</p>
+            </div>
+        </div>
+        <span class="desc">Pam Halpert is the friendly and talented receptionist at Dunder Mifflin's Scranton branch. In addition to her front desk duties, she also provides vital administrative support to the sales team. Her attention to detail and organizational skills help ensure the smooth operation of the office, and she is known for her warm and welcoming presence.</span>
+        <span class="personal">Pam is an aspiring artist with a passion for watercolor painting. She often spends her free time creating beautiful artworks and harbors a deep love for expressing herself through art. </span>
+    </div>
+    <div class="card" id="card-5">
+        <div class="employee">
+            <img src="../../public/img/phyllis.png" alt="" class="profile">
+            <div class="nameNTitle">
+                <p class="name">Phyllis Lapin</p>
+                <p class="title">Saleswoman</p>
+            </div>
+        </div>
+        <span class="desc">Phyllis Lapin is a seasoned and highly respected saleswoman at Dunder Mifflin's Scranton branch. With her warm and maternal demeanor, she excels at building and nurturing client relationships, making her an invaluable member of the sales team. </span>
+        <span class="personal">Outside of work, Phyllis enjoys knitting and often brings her handmade creations to share with her coworkers. She is happily married to Bob Vance and frequently regales her colleagues with amusing stories about their unique and endearing relationship, providing a dose of humor and warmth to the office environment.</span>
+    </div>
+   </div>
+</MainLayout>
+
+<style>
+    .container {
+        display: grid;
+        grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));        
+        grid-template-rows: auto;
+        gap: var(--small-spacing);
+        max-width: 1500px;
+        margin: auto;
+    }
+
+    .card{
+        padding: var(--small-spacing) 1.5rem;
+        overflow-y:hidden ;
+        background-color: var(--secondary-color);
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: var(--small-spacing);
+    }
+
+    .card:first-child, .card:last-child{
+        grid-column: span 2;
+        background-color: var(--primary-color);
+        > .desc{
+        font-size: var(--h5-font-size);
+        line-height: 1.25;
+
+        
+        }
+    }
+
+    
+    .profile{
+        border-radius: 50px;
+    }
+    
+    .card:nth-child(odd) .profile{
+        width: 6rem;
+    }
+    .card:nth-child(even) .profile{
+        width: 5rem;
+    }
+    
+    .employee{
+        display: flex;
+        gap: var(--small-spacing);
+        align-items: center;
+    }
+    
+    .title{
+        opacity: 0.7;
+    }
+    
+    .personal{
+        opacity: 0.7;
+    }
+    
+.card:nth-child(3){
+    grid-row: span 2;
+    background-color: var(--accent-color);
+    >.desc{
+    font-size: var(--h5-font-size);
+    line-height: 1.25;
+    }
+    > .employee{
+        flex-direction: column;
+        align-items: start;
+        .profile{
+            width: 8rem;
+            border-radius: 50%;
+        } 
+    }   
+}
+
+@media (width < 1300px){
+    .container{
+        grid-template-columns:repeat(auto-fit, minmax(500px, 1fr));        
+
+}
+}
+
+@media (width < 1000px){
+    .container{
+        display: grid;
+        grid-template-columns:1fr;        
+        max-width: 800px;
+       }
+
+       .card:first-child, .card:last-child{
+        grid-column: span 1;
+        background-color: var(--primary-color);
+        > .desc{
+        font-size: initial;
+        line-height: initial;
+        }
+    }
+
+    .card:nth-child(3){
+    >.desc{
+    font-size: initial;
+    line-height: initial;
+    }
+    > .employee{
+        flex-direction: row;
+        align-items: center;
+    }   
+}
+
+.profile{
+    width: 5rem !important;
+}
+}
+</style>

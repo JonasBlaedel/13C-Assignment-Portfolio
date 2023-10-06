@@ -1,0 +1,211 @@
+---
+import "../../public/shared.css"
+import MainLayout from "../components/MainLayout.astro"
+---
+
+<MainLayout>
+    <h1>Part A</h1>
+    <p class="intro">Min HTML samlet er i en sektion med klassen "container". Denne sektion indeholder et billede med id "employeeFoto" samt beskrivende tekst om Michael Scott i forskellige div-elementer. Der er en kontaktsektion i en anden div med klassen "connect", der indeholder ikoner og tekst.
+
+        I CSS-delen er "Container" blevet givet min primære farve som baggrundsfarve, der er defineret som en variabel `--primary-color`, og der er tilføjet afrundede hjørner med `border-radius`.
+        
+        Stylingen for "name" er min sekundære farve fra variabelen `--secondary-color`. "Connect"-sektionen har min accent-farve som baggrundsfarve med variablen `--accent-color`. 
+        
+       Jeg har brugt media queries, der tilpasser layout og styling baseret på skærmstørrelsen. Dette inkluderer ændringer i layoutet fra en enkelt kolonne til et to-kolonner-grid samt justeringer i billedepositionen for at sikre, at kortet er responsiv på forskellige enheder.
+        </p>
+    <div class="container">
+        <img id="employeeFoto" src="../../public/img/MS.png" alt="">
+        <div class="employee">
+            <div class="name"><h3>Michael Scott</h3></div>
+            <div class="title"><h4>Regional Manager</h4></div>
+        </div>
+        <div class="desc"><p>Michael Scott (aka Regional Manager) is the charismatic, albeit quirky, leader of the Scranton branch, known for his unorthodox management style and unwavering enthusiasm for paper sales. His bumbling yet well-intentioned antics often cast him as the goofy boss among the employees of Dunder Mifflin, providing endless amusement for the office. Michael's relentless pursuit of friendship sometimes veers into cringe-worthy territory, as he attempts to bond with his colleagues in unconventional ways.<br>
+
+             </p></div>    
+        <div class="connect">
+            <p>Connect</p>
+        <div class="icons">
+             <div class="icon">
+                <img src="../../public/img/mail.png" alt="">
+            </div>
+            <div class="icon">
+                 <img src="../../public/img/call.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+</MainLayout>
+
+<style>
+
+.container{
+margin-top: 5rem;
+background-color: var(--primary-color);
+border-radius: 15px ;
+}
+
+.container #employeeFoto{
+    border-radius: 25px 25px 0 0;
+}
+
+.employee{
+    margin: 2rem;
+    margin-bottom: var(--small-spacing);
+}
+.desc{
+    padding-inline: 2rem;
+    padding-bottom: 3rem;
+}
+
+.name{
+    color: var(--secondary-color);
+}
+
+.connect{
+    background-color: var(--accent-color);
+    border-radius: 0 0 15px 15px;
+    padding: 1rem;
+
+}
+.connect p{
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.icons{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.icon{
+    width:50px;
+    height: 50px;
+}
+
+@media screen and (min-width: 515px) and (max-width: 690px) {
+.container{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto;
+}
+.container #employeeFoto{
+    align-self: center;
+    padding: 1rem;
+    border-radius: 25px;
+}
+.employee{
+    grid-column: 2/3;
+}
+.desc{
+    grid-column:1/3;
+    grid-row: 2/3;
+    padding-inline: 1rem;
+    padding-bottom: 1rem;
+
+}
+.connect{
+    grid-column:1/3;
+    grid-row: 3/4;
+}
+}
+
+@media screen and (min-width: 690px) and (max-width: 865px) {
+    .container{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: repeat(3,1fr);
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.container #employeeFoto{
+    align-self: center;
+    border-radius: 15px;
+    grid-column:1/2;
+    grid-row:1/3;
+    height:100%;
+    object-fit: cover;
+}
+
+.employee{
+    grid-column: 2/3;
+    margin: 1rem;
+    grid-row: 1/2;
+}
+.desc{
+    grid-column:2/3;
+    grid-row: 2/5;
+    padding-inline: 1rem;
+    padding-bottom: 0rem;
+}
+.connect{
+    grid-column:1/2;
+    grid-row: 3/4;
+    background-color: transparent;
+    justify-content: ce;
+}
+.connect p{
+    font-size: var(--p-small-font-size);
+}
+.connect img{
+   max-width: 50%;
+   margin: auto;
+}
+}
+
+@media  (min-width: 865px) {
+    .container{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: repeat(3,1fr);
+    padding: 1rem;
+    border-radius: 15px;
+    max-width: 865px;
+    margin:auto;
+    margin-top: 5rem;
+    position: relative;
+    }
+
+.container #employeeFoto{
+    align-self: center;
+    border-radius: 15px;
+    grid-column: 1/2;
+    grid-row: 1/3;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: -15%;
+    left: -15%;
+    width: 115%;
+    max-width: 115%;
+    aspect-ratio: 15/16;
+}
+
+.employee{
+    grid-column: 2/3;
+    margin: 1rem;
+    grid-row: 1/2;
+}
+.desc{
+    grid-column:2/3;
+    grid-row: 2/5;
+    padding-inline: 1rem;
+    padding-bottom: 0rem;
+}
+.connect{
+    grid-column:1/2;
+    grid-row: 3/4;
+    background-color: transparent;
+    justify-content: ce;
+}
+.connect p{
+    font-size: var(--p-small-font-size);
+}
+.connect img{
+   max-width: 50%;
+   margin: auto;
+}
+}
+</style>

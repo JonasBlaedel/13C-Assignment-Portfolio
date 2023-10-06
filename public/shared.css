@@ -1,0 +1,144 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  font-size: 16px;
+  --h1-font-size: 3.052rem;
+  --h2-font-size: 2.441rem;
+  --h3-font-size: 1.953rem;
+  --h4-font-size: 1.563rem;
+  --h5-font-size: 1.25rem;
+  --p-font-size: 1rem;
+  --p-small-font-size: 0.8rem;
+  --primary-color: #94a5a8;
+  --secondary-color: #e0e2e6;
+  --accent-color: #707989;
+  --background-color: #f1f1f1;
+  --text-color: #0f0f0f;
+  --rounded: 15px;
+  --small-spacing: 1rem;
+  --xs-spacing: 0.5rem;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  background-color: var(--background-color);
+  margin: 1rem;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+button,
+input,
+label {
+  line-height: 1.25;
+  font-family: "Nunito", sans-serif;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+  font-size: var(--p-font-size);
+}
+
+button:not([class]) {
+  box-shadow: none;
+  border: none;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+}
+h5 {
+  font-size: var(--h5-font-size);
+}
+
+p,
+label,
+a,
+span {
+  font-size: var(--p-font-size);
+  font-family: "Supreme", sans-serif;
+}
+
+.pSmall {
+  font-size: var(--p-small-font-size);
+}
+
+.primary {
+  background-color: var(--primary-color);
+}
+
+.secondary {
+  background-color: var(--secondary-color);
+}
+
+.accent {
+  background-color: var(--accent-color);
+}
+
+.intro {
+  width: 50ch;
+}

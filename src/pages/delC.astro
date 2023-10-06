@@ -1,0 +1,163 @@
+---
+import "../../public/shared.css"
+import MainLayout from "../components/MainLayout.astro"
+---
+
+<MainLayout>
+    <h1>Part C</h1>
+    <p class="intro"> Min div med klassen "container," indeholder to hovedsektioner: "imgContainer" og "cta."
+
+        I "imgContainer" er der en div element "background" stylet med min primære farve og et billede med id "bgImg,".
+        
+        I "cta"-sektionen er der tekst og en knap, med display flex-layout med indbygget CSS-nesting.  Teksten og knappen er placeret i en undersektion "textNBtn,".
+        
+        Media queries tilpasser layoutet baseret på skærmstørrelsen. Ved skærmstørrelser over 690px ændres layoutet til et grid med fem kolonner. "imgContainer" optager tre kolonner, og der tilføjes en baggrund for at forbedre kontrasten med den primære farve. "cta" optager de sidste to kolonner og ændrer overskriftsstørrelsen.
+        
+        Ved skærmstørrelser over 1000px ændres "cta"-sektionen yderligere ved hjælp af et grid-layout med tre kolonner. Overskriften og teksten/knappen placeres i separate kolonner.
+       </p>
+    <div class="container">
+        <div class="imgContainer">
+            <div class="background"></div>
+            <img src="../../public/img/sofa.webp" alt="" id="bgImg">
+        </div>
+        <div class="cta">
+            <span class="heroTitle">Relax in Style</span>
+            <div class="textNBtn">
+            <span class="copy">Transform your living space into a haven of relaxation with our exquisite sofa collection. Crafted for your comfort and style, our sofas blend elegance and coziness seamlessly. Indulge in the refreshing embrace of our soda, a burst of flavor in every sip. Elevate your taste experience with our soda, where quality meets thirst-quenching delight. </span>
+            <button> Discover Your Perfect Sofa <span id="arrow">&#62;</span></button>
+        </div>
+        </div>
+    </div>
+</MainLayout>
+
+<style>
+   body{
+    margin: 0;
+   }
+
+   .container{
+    margin-top: var(--small-spacing);
+   }
+
+   .imgContainer {
+    background-color: var(--primary-color);
+    height: 33dvh;
+
+        >#bgImg{
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+   }
+ 
+   }
+
+   .cta{
+    margin: var(--small-spacing);
+    display: flex;
+    flex-direction: column;
+    gap: var(--small-spacing);
+        > .heroTitle{
+            font-size: var(--h3-font-size);
+            font-family: "Nunito", sans-serif;
+            color: var(--accent-color);
+        }
+        
+         > .textNBtn{
+            display: flex;
+            flex-direction: column;
+            gap: var(--small-spacing);
+
+            & .copy{
+            margin-bottom: var(--small-spacing);
+        }
+        
+         & button{
+            width: fit-content;
+            font-size: var(--p-font-size);
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            padding: var(--xs-spacing) var(--small-spacing);
+            position: relative;
+            padding-right: 2rem;
+
+            & span{
+                position: absolute;
+                top:0;
+                right:0;
+                background-color: var(--primary-color);
+                width: fit-content;
+                height: 100%;
+                padding: var(--xs-spacing);
+            }
+
+            &:hover{
+                cursor: pointer;
+                opacity: 0.8;
+            }
+        }
+    }
+   }
+
+   @media (width > 690px) {
+
+    .container{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+    }
+
+    .imgContainer {
+        grid-column: 1/4;
+        grid-row:1/2;
+        position: relative;
+        height: 70dvh;
+        
+        >#bgImg{
+          opacity: 0.4;
+       }
+        >.background{
+            position: absolute;
+          background-color: var(--primary-color);
+          width: 100%;
+          height: 100%;
+          top:0;
+          left:0;
+       }
+    }
+
+    .cta{
+        grid-column: 3/6;
+        grid-row: 1/2;
+        z-index:1;
+        justify-content: center;
+        > .heroTitle{
+            font-size: var(--h2-font-size);
+            color: var(--p-color);
+        }
+
+    }
+   }
+
+   @media (width > 1000px) {
+
+    .cta{
+        grid-column: 2/6;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      > .heroTitle{
+           grid-column: 1/2;
+           font-size: var(--h1-font-size);
+           align-self: center;
+        } 
+        > .textNBtn{
+            grid-column:2/4;
+            display: flex;
+            flex-direction: column;
+            gap: var(--small-spacing);
+            align-self: center;
+            
+    }
+   }
+}
+
+
+</style>

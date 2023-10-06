@@ -1,0 +1,40 @@
+---
+import "../../public/shared.css"
+import MainLayout from "../components/MainLayout.astro"
+---
+<MainLayout>
+	<div class="left">
+	<div class="fonts">
+		<h1>This is my h1</h1>
+		<h2>This is my h2</h2>
+		<h3>This is my h3</h3>
+		<h4>This is my h4</h4>
+		<h5>This is my h5</h5>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut consectetur augue. Maecenas non sem ut arcu congue gravida. Nulla facilisi. Pellentesque a sapien feugiat, lobortis velit id, auctor dui. Vivamus a purus in mi gravida varius id vitae justo.</p>
+		<p>This is pSmall<br><span class="pSmall">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut consectetur augue. Maecenas non sem ut arcu congue gravida. Nulla facilisi. Pellentesque a sapien feugiat, lobortis velit id, auctor dui. Vivamus a purus in mi gravida varius id vitae justo.</span></p>
+	</div>
+	<div class="colors">
+		<div class="color primary"></div>
+		<div class="color secondary"></div>
+		<div class="color accent"></div>
+	</div>
+</div>
+<div class="right">
+	<h1>13C Assignment Portfolio</h1>
+	<h3>by Jonas Lundberg Blædel</h3>
+	<p>Jeg har brugt værktøjet på Typescale.com til at lave mit fonthieraki med fem heading font-størrelser, en paragraph og en parapgraph small. Font hierakiet baseret på min basis font størrelse på 18px. Ergo er 1 rem tilsvarende 18px. Jeg har givet min paragrapher en lineheight på 1.5, og mine heading 1.25. Jeg har fundet mine 3 farver, samt baggrundsfarve på Realtime Colors hjemmeside. </p>
+</div>
+</MainLayout>
+
+<style>
+	.color { 
+  width: 16rem;
+  height: 16rem;
+}
+
+.colors{
+    display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
+</style>
