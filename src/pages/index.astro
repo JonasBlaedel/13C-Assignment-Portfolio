@@ -30,8 +30,8 @@ import MainLayout from "../components/MainLayout.astro"
 
 <style>
 	.color { 
-  width: 16rem;
-  height: 16rem;
+  width: 8rem;
+  height: 8rem;
 }
 
 .colors{
@@ -46,6 +46,14 @@ import MainLayout from "../components/MainLayout.astro"
   align-items: center;
   gap: 5rem;
   height: 100dvh;
+}
+
+@media (max-width:1000px){
+	.container  {
+ 
+  grid-template-columns: 1fr ;
+
+}
 }
 
 
