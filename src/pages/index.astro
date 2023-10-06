@@ -3,6 +3,7 @@ import "../../public/shared.css"
 import MainLayout from "../components/MainLayout.astro"
 ---
 <MainLayout>
+	<div class="container">
 	<div class="left">
 	<div class="fonts">
 		<h1>This is my h1</h1>
@@ -24,6 +25,7 @@ import MainLayout from "../components/MainLayout.astro"
 	<h3>by Jonas Lundberg Blædel</h3>
 	<p>Jeg har brugt værktøjet på Typescale.com til at lave mit fonthieraki med fem heading font-størrelser, en paragraph og en parapgraph small. Font hierakiet baseret på min basis font størrelse på 18px. Ergo er 1 rem tilsvarende 18px. Jeg har givet min paragrapher en lineheight på 1.5, og mine heading 1.25. Jeg har fundet mine 3 farver, samt baggrundsfarve på Realtime Colors hjemmeside. </p>
 </div>
+</div>
 </MainLayout>
 
 <style>
@@ -37,4 +39,14 @@ import MainLayout from "../components/MainLayout.astro"
 	flex-direction: row;
 	gap: 1rem;
 }
+
+.container  {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 5rem;
+  height: 100dvh;
+}
+
+
 </style>
